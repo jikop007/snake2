@@ -1,6 +1,6 @@
 #pragma once
-#include "Snake.h"
-#include "Apple.h"
+#include "snake.h"
+#include "apple.h"
 #include <thread>
 #include <atomic>
 

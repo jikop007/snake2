@@ -1,6 +1,6 @@
 #pragma once
 #include <deque>
-#include "Direction.h"
+#include "direction.h"
 
 class Snake {
 private:

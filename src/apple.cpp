@@ -1,4 +1,4 @@
-#include "Apple.h"
+#include "apple.h"
 #include <ctime>
 
 Apple::Apple(int w, int h) {

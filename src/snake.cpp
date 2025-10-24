@@ -1,4 +1,4 @@
-#include "Snake.h"
+#include "snake.h"
 
 Snake::Snake(int startX, int startY)
     : dir(Direction::STOP)

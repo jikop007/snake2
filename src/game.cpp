@@ -3,6 +3,10 @@
 #include <conio.h>
 #include <windows.h>
 
+void setColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
 static void setCursorPosition(int x, int y) {
     COORD coord = { (SHORT)x, (SHORT)y };
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
@@ -26,8 +30,11 @@ void Game::run() {
 
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
-            if (x == 0 || y == 0 || x == width - 1 || y == height - 1)
+            if (x == 0 || y == 0 || x == width - 1 || y == height - 1) {
+                setColor(5);
                 std::cout << "H";
+                setColor(7);
+            }
             else
                 std::cout << " ";
         }
@@ -35,7 +42,9 @@ void Game::run() {
     }
 
     setCursorPosition(apple.getX(), apple.getY());
+    setColor(12);
     std::cout << "A";
+    setColor(7);
 
     setCursorPosition(0, height);
     std::cout << "Score: " << score;
@@ -78,7 +87,9 @@ void Game::logic() {
     int headY = snake.getHeadY();
 
     setCursorPosition(headX, headY);
+    setColor(6);
     std::cout << "O";
+    setColor(7);
 
     setCursorPosition(oldTailX, oldTailY);
     std::cout << " ";
@@ -87,7 +98,9 @@ void Game::logic() {
         snake.grow();
         apple.respawn(width, height);
         setCursorPosition(apple.getX(), apple.getY());
+        setColor(12);
         std::cout << "A";
+        setColor(7);
         score += 1;
         setCursorPosition(7, height);
         std::cout << score << " ";
